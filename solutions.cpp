@@ -9,7 +9,7 @@
 
 using namespace std;
 
-
+//probabely doesn't work
 pair<int, int> pairfinder(vector<int> nums, int tar) {
 
 
@@ -58,6 +58,9 @@ pair<int, int> pairfinder(vector<int> nums, int tar) {
 
 }
 
+
+//Given an integer array, find all contiguous subarrays with zero-sum.
+//probabely doesn't work
 set<vector<int>> getAllZeroSumSubarrays(vector<int> const& nums)
 {
 	set<vector<int>> subarrays;
@@ -111,6 +114,9 @@ set<vector<int>> getAllZeroSumSubarrays(vector<int> const& nums)
 
 }
 
+
+//Check if a given string can be derived from another string by circularly rotating it. The rotation can be in a clockwise or anti-clockwise rotation.
+//works
 bool is_subs(string org, string driven) {
 	string clockwise, anti_clockwise;
 	int unit = 1;
@@ -178,7 +184,8 @@ bool is_subs(string org, string driven) {
 
 }
 
-//Check if a given string can be derived from another string by circularly rotating it. The rotation can be in a clockwise or anti-clockwise rotation.
+//Given an integer array, find a pair with the maximum product in it.
+//works
 pair<int, int> max_pair_product(vector<int> nums) {
 
 
@@ -230,7 +237,7 @@ pair<int, int> max_pair_product(vector<int> nums) {
 	return max_pair;
 
 }
-
+//works
 pair<int, int> findsum(vector<int> nums, int target) {
 
 	pair<int, int> tar_pair; tar_pair.first = -1; tar_pair.second = -1;
@@ -258,6 +265,7 @@ pair<int, int> findsum(vector<int> nums, int target) {
 }
 
 //Given an integer array, check if it contains a contiguous subarray having zero-sum.
+//probably works
 bool zerosum(vector<int> nums) {
 
 	if (nums.size() == 1) {
@@ -287,6 +295,7 @@ bool zerosum(vector<int> nums) {
 
 
 //Given an `N × N` integer matrix, rotate the matrix by 90 degrees in a clockwise direction. The transformation should be done in-place and in quadratic time.
+//works
 vector<vector<int>> rotate_vecs_90(vector<vector<int>> nums) {
 
 	vector<vector<int>> rotated;
