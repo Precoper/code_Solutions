@@ -5,7 +5,7 @@
 #include <numeric>
 #include <algorithm>
 #include <string>
-#include "funcs.h"
+#include "solutions.h"
 
 using namespace std;
 
