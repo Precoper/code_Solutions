@@ -8,8 +8,8 @@
 
 using namespace std;
 
-#ifndef FUNCS_H
-#define FUNCS_H
+#ifndef SOLUTIONS_H
+#define SOLUTIONS_H
 
 
 pair<int, int> pairfinder(vector<int> nums, int tar);
