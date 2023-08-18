@@ -178,7 +178,8 @@ bool is_subs(string org, string driven) {
 
 }
 
-pair<int, int> max_pair_finder(vector<int> nums) {
+//Check if a given string can be derived from another string by circularly rotating it. The rotation can be in a clockwise or anti-clockwise rotation.
+pair<int, int> max_pair_product(vector<int> nums) {
 
 
 	pair<int, int> max_pair; max_pair.first = 0; max_pair.second = 0;
@@ -256,6 +257,7 @@ pair<int, int> findsum(vector<int> nums, int target) {
 
 }
 
+//Given an integer array, check if it contains a contiguous subarray having zero-sum.
 bool zerosum(vector<int> nums) {
 
 	if (nums.size() == 1) {
@@ -283,6 +285,8 @@ bool zerosum(vector<int> nums) {
 	return false;
 }
 
+
+//Given an `N × N` integer matrix, rotate the matrix by 90 degrees in a clockwise direction. The transformation should be done in-place and in quadratic time.
 vector<vector<int>> rotate_vecs_90(vector<vector<int>> nums) {
 
 	vector<vector<int>> rotated;
