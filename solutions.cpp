@@ -139,58 +139,6 @@ bool solution::is_subs(string org, string driven) {
 
 }
 
-//Given an integer array, find a pair with the maximum product in it.
-pair<int, int> solution::max_product_finder(vector<int> nums) {
-
-
-	pair<int, int> max_pair; max_pair.first = 0; max_pair.second = 0;
-
-	if (nums.size() <= 1) {
-		max_pair.first = -1;
-		max_pair.second = -1;
-		return max_pair;
-	}
-
-
-	int start = 0;
-	int end = start + 1;
-
-	while (start < nums.size() - 1) {
-		int max_pair_sum = max_pair.first + max_pair.second;
-
-		if (end < nums.size() - 1) {
-			int current_pair_sum = nums[start] + nums[end];
-			int next_pair_sum = nums[start] + nums[end + 1];
-			if (abs(current_pair_sum) >= abs(next_pair_sum) && abs(current_pair_sum) >= abs(max_pair_sum)) {
-				max_pair.first = nums[start];
-				max_pair.second = nums[end];
-			}
-			else if (abs(current_pair_sum) <= abs(next_pair_sum) && abs(next_pair_sum) >= abs(max_pair_sum)) {
-				max_pair.first = nums[start];
-				max_pair.second = nums[end + 1];
-			}
-			end++;
-		}
-		else if (start == nums.size() - 2) {
-			int current_pair_sum = nums[start] + nums[end];
-			if (abs(current_pair_sum) >= abs(max_pair_sum)) {
-				max_pair.first = nums[start];
-				max_pair.second = nums[end];
-
-			}
-			start++;
-			end = start + 1;
-		}
-		else {
-			start++;
-			end = start + 1;
-		}
-	}
-
-
-	return max_pair;
-
-}
 
 pair<int, int> solution::findsum(vector<int> nums, int target) {
 
@@ -245,6 +193,7 @@ bool solution::zerosum(vector<int> nums) {
 	return false;
 }
 
+//Given an `N × N` integer matrix, rotate the matrix by 90 degrees in a clockwise direction. The transformation should be done in-place and in quadratic time
 vector<vector<int>> solution::rotate_vecs_90(vector<vector<int>> nums) {
 
 	vector<vector<int>> rotated;
