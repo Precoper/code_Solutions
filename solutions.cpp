@@ -9,59 +9,16 @@
 
 using namespace std;
 
-//probabely doesn't work
-pair<int, int> pairfinder(vector<int> nums, int tar) {
+
+//solution class function definations
 
 
-	pair<int, int> thepair;
+//constructors
 
 
-	int f = 0;  //first
-	int s = 1; //second
+//other member funcitons
 
-	bool pairfound = false;
-
-	while (true) {
-		if (nums.size() != 1) {
-			if (nums[f] + nums[s] == tar) {
-				thepair.first = nums[f];
-				thepair.second = nums[s];
-				pairfound = true;
-				break;
-			}
-			else {
-				s++;
-				if (s >= nums.size() - 1) {
-					nums.erase(nums.begin());
-					s = 1;
-				}
-			}
-		}
-		else {
-			if (pairfound == true) {
-				return thepair;
-				break;
-
-			}
-			thepair.first = -1;
-			thepair.second = -1;
-			return thepair;
-			break;
-
-		}
-
-
-
-	}
-
-
-
-}
-
-
-//Given an integer array, find all contiguous subarrays with zero-sum.
-//probabely doesn't work
-set<vector<int>> getAllZeroSumSubarrays(vector<int> const& nums)
+set<vector<int>> solution::getAllZeroSumSubarrays(vector<int> const& nums)
 {
 	set<vector<int>> subarrays;
 
@@ -114,10 +71,7 @@ set<vector<int>> getAllZeroSumSubarrays(vector<int> const& nums)
 
 }
 
-
-//Check if a given string can be derived from another string by circularly rotating it. The rotation can be in a clockwise or anti-clockwise rotation.
-//works
-bool is_subs(string org, string driven) {
+bool solution::is_subs(string org, string driven) {
 	string clockwise, anti_clockwise;
 	int unit = 1;
 
@@ -184,9 +138,7 @@ bool is_subs(string org, string driven) {
 
 }
 
-//Given an integer array, find a pair with the maximum product in it.
-//works
-pair<int, int> max_pair_product(vector<int> nums) {
+pair<int, int> solution::max_pair_finder(vector<int> nums) {
 
 
 	pair<int, int> max_pair; max_pair.first = 0; max_pair.second = 0;
@@ -237,8 +189,8 @@ pair<int, int> max_pair_product(vector<int> nums) {
 	return max_pair;
 
 }
-//works
-pair<int, int> findsum(vector<int> nums, int target) {
+
+pair<int, int> solution::findsum(vector<int> nums, int target) {
 
 	pair<int, int> tar_pair; tar_pair.first = -1; tar_pair.second = -1;
 
@@ -264,9 +216,7 @@ pair<int, int> findsum(vector<int> nums, int target) {
 
 }
 
-//Given an integer array, check if it contains a contiguous subarray having zero-sum.
-//probably works
-bool zerosum(vector<int> nums) {
+bool solution::zerosum(vector<int> nums) {
 
 	if (nums.size() == 1) {
 		if (nums[0] == 0) {
@@ -293,10 +243,7 @@ bool zerosum(vector<int> nums) {
 	return false;
 }
 
-
-//Given an `N × N` integer matrix, rotate the matrix by 90 degrees in a clockwise direction. The transformation should be done in-place and in quadratic time.
-//works
-vector<vector<int>> rotate_vecs_90(vector<vector<int>> nums) {
+vector<vector<int>> solution::rotate_vecs_90(vector<vector<int>> nums) {
 
 	vector<vector<int>> rotated;
 	vector<int> tmp;
@@ -314,3 +261,56 @@ vector<vector<int>> rotate_vecs_90(vector<vector<int>> nums) {
 
 	return rotated;
 }
+
+
+//<--------------------------------------------------------------------------------------->
+
+
+
+
+
+//test class functions definations
+
+
+//constructors
+
+test::test(zerosum func, vector<int> test_value, bool expected_result){
+	func = &solution::zerosum;
+	bool result = func(test_value);
+	(result == expected_result) ? passed = true : passed = false;
+}
+
+test::test(rotate_vecs_90 func, vector<vector<int>> test_value, vector<vector<int>> expected_result) {
+	func = &solution::rotate_vecs_90;
+	vector<vector<int>> result = func(test_value);
+	(result == expected_result) ? passed = true : passed = false;
+}
+
+test::test(findsum func, vector<int> test_value_1, int test_value_2, pair<int, int> expected_result) {
+	func = &solution::findsum;
+	pair<int, int> result = func(test_value_1, test_value_2);
+	(result == expected_result) ? passed = true : passed = false;
+}
+
+test::test(is_subs func, string test_value_1, string test_value_2, bool expected_result){
+	func = &solution::is_subs;
+	bool result = func(test_value_1, test_value_2);
+	(result == expected_result) ? passed = true : passed = false;
+
+}
+
+test::test(getAllZeroSumSubarrays func, vector<int> const& test_value, set<vector<int>> expected_result) {
+	func = &solution::getAllZeroSumSubarrays;
+	set<vector<int>> result = func(test_value);
+	(result == expected_result) ? passed = true : passed = false;
+}
+
+//other member functions
+
+void test::get_result(){
+	(passed == true) ? cout << "test result: " << "passed" << endl : cout << "test result: " << "failed" << endl;
+}
+
+
+//<--------------------------------------------------------------------------------------->
+                                          
