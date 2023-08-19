@@ -30,8 +30,6 @@ public:
 
 	 static bool is_subs(string org, string driven);
 
-	 static pair<int, int> max_pair_finder(vector<int> nums);
-
 	 static pair<int, int> findsum(vector<int> nums, int target);
 
 	 static bool zerosum(vector<int> nums);
@@ -52,7 +50,7 @@ private:
 	typedef pair<int, int>(*findsum)(vector<int>, int);
 	typedef bool(*is_subs)(string, string);
 	typedef set<vector<int>>(*getAllZeroSumSubarrays)(vector<int> const&);
-	typedef pair<int, int>(*max_pair_finder)(vector<int>);
+	
 
 
 	//result
@@ -78,25 +76,3 @@ public:
 
 #endif
 
-using namespace std;
-
-#ifndef SOLUTIONS_H
-#define SOLUTIONS_H
-
-
-pair<int, int> pairfinder(vector<int> nums, int tar);
-
-set<vector<int>> getAllZeroSumSubarrays(vector<int> const& nums);
-
-bool is_subs(string org, string driven);
-
-pair<int, int> max_pair_finder(vector<int> nums);
-
-pair<int, int> findsum(vector<int> nums, int target);
-
-bool zerosum(vector<int> nums);
-
-vector<vector<int>> rotate_vecs_90(vector<vector<int>> nums);
-
-
-#endif
