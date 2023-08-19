@@ -71,6 +71,7 @@ set<vector<int>> solution::getAllZeroSumSubarrays(vector<int> const& nums)
 
 }
 
+//Check if a given string can be derived from another string by circularly rotating it. The rotation can be in a clockwise or anti-clockwise rotation.
 bool solution::is_subs(string org, string driven) {
 	string clockwise, anti_clockwise;
 	int unit = 1;
@@ -138,7 +139,8 @@ bool solution::is_subs(string org, string driven) {
 
 }
 
-pair<int, int> solution::max_pair_finder(vector<int> nums) {
+//Given an integer array, find a pair with the maximum product in it.
+pair<int, int> solution::max_product_finder(vector<int> nums) {
 
 
 	pair<int, int> max_pair; max_pair.first = 0; max_pair.second = 0;
